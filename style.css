@@ -1,0 +1,310 @@
+/* ======== Reset & Base ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  color: #222;
+}
+
+body, html {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: none;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out;
+  padding: 20px;
+  color: #222;
+  user-select: none;
+}
+
+/* ======== Responsive Backgrounds for Orientation ======== */
+@media (orientation: portrait) {
+  body {
+    background-image: url('https://i.postimg.cc/hPP3dFyx/image.png'); /* Portrait background */
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    background-image: url('https://i.postimg.cc/sxfst6VW/image.png'); /* Landscape background */
+  }
+}
+
+/* ======== Floating Hot Air Balloons Container ======== */
+.balloons-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+/* Single balloon styles - use JS for multiple sizes/positions */
+.balloon {
+  position: absolute;
+  bottom: -150px; /* start below viewport */
+  width: 50px;
+  height: 70px;
+  background: url('https://i.postimg.cc/hGGhN10N/image.png') no-repeat center center;
+  background-size: contain;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0.6;
+  }
+}
+
+/* ======== SECTIONS ======== */
+section {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 30px 40px;
+  backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ======== SECTION 1: Intro ======== */
+.intro-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #00ffff;
+  box-shadow:
+    0 0 15px #00ffff,
+    0 0 30px #00ffff,
+    0 0 40px #ff69b4,
+    0 0 60px #ff69b4;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.side-decor {
+  font-size: 2.5rem;
+  color: #ff69b4;
+  user-select: none;
+}
+
+.name {
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin-top: 10px;
+  color: #222;
+  text-shadow:
+    0 0 8px #ff69b4,
+    0 0 15px #00ffff,
+    0 0 20px #ff69b4;
+  font-family: 'Segoe UI Black', Arial Black, sans-serif;
+}
+
+/* ======== SECTION 2: Subjects ======== */
+.semester-section h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #222;
+  text-align: center;
+  text-shadow: 0 0 10px #00ffff, 0 0 15px #ff69b4;
+  font-weight: 800;
+}
+
+.subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.subject {
+  background: #fff;
+  width: 160px;
+  border-radius: 15px;
+  box-shadow: 0 0 18px rgba(255, 105, 180, 0.5);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.subject:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 0 20px #00ffff,
+    0 0 30px #ff69b4,
+    0 0 40px #00ffff;
+}
+
+.subject-photo {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-bottom: 3px solid #ff69b4;
+}
+
+.subject-link {
+  display: block;
+  padding: 12px 0;
+  font-weight: 700;
+  color: #222;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-shadow: 0 0 10px #00ffff, 0 0 15px #ff69b4;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.subject-link:hover {
+  color: #ff69b4;
+}
+
+/* ======== SECTION 3: About Me ======== */
+.about-section {
+  max-width: 700px;
+  margin: 40px auto 60px;
+  text-align: center;
+  color: #222;
+}
+
+.about-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-shadow: 0 0 15px #00ffff, 0 0 20px #ff69b4;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #333;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 22px;
+  border: 2px solid #00ffff;
+  border-radius: 40px;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow:
+    0 0 8px #00ffff,
+    0 0 15px #ff69b4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.social-links a:hover {
+  background-color: #ff69b4;
+  color: #222;
+  border-color: #ff69b4;
+  box-shadow:
+    0 0 18px #ff69b4,
+    0 0 30px #ff69b4;
+}
+
+.social-links a:active {
+  background-color: #ff6f91;
+  color: #222;
+  border-color: #ff6f91;
+  box-shadow:
+    0 0 25px #ff6f91,
+    0 0 40px #ff6f91;
+  transform: scale(0.95);
+  transition: all 0.15s ease;
+}
+
+/* ======== Button Style for Links ======== */
+a {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  display: inline-block;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a:link, a:visited {
+  color: #00cfff;
+}
+
+a:hover {
+  color: #ff0000;
+}
+
+a:active {
+  color: #ff69b4;
+}
+
+/* ======== Ripple effect handled by JS ======== */
+
+/* ======== Responsive ======== */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .side-decor {
+    display: none;
+  }
+
+  .subject {
+    width: 45%;
+  }
+}
+
+@media (max-width: 400px) {
+  .subject {
+    width: 100%;
+  }
+
+  .social-links a {
+    margin: 10px 5px;
+    padding: 8px 18px;
+    font-size: 1rem;
+  }
+}
